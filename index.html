@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Ebook</h1>
+    <span>Junior High School Filipino</span>
+  </header>
+
+  <div class="container">
+    <!-- DASHBOARD VIEW -->
+    <div id="dashboardView">
+      <h2>Pumili ng Baitang:</h2>
+      <div class="grade-grid">
+        <div class="grade-card" onclick="openGrade('Grade 7')">
+          <h2>Gr 7</h2>
+          <p>Aralin, Presentasyon at Pagsasanay</p>
+        </div>
+        <div class="grade-card" onclick="openGrade('Grade 8')">
+          <h2>Gr 8</h2>
+          <p>Aralin, Presentasyon at Pagsasanay</p>
+        </div>
+        <div class="grade-card" onclick="openGrade('Grade 9')">
+          <h2>Gr 9</h2>
+          <p>Aralin, Presentasyon at Pagsasanay</p>
+        </div>
+        <div class="grade-card" onclick="openGrade('Grade 10')">
+          <h2>Gr 10</h2>
+          <p>Aralin, Presentasyon at Pagsasanay</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE VIEW -->
+    <div id="moduleView" class="hidden">
+      <div class="nav-bar">
+        <button class="back-btn" onclick="goBack()">Bumalik sa Dashboard</button>
+        <h2 id="currentGradeTitle" style="margin: 0 15px 0 0;">Baitang 7</h2>
+        <button class="tab-btn active" onclick="switchTab('aralinPpt', this)">Aralin at Presentasyon</button>
+        <button class="tab-btn" onclick="switchTab('exercise', this)">Pagsasanay</button>
+      </div>
+
+      <!-- COMBINED ARALIN + PPT COMPONENT -->
+      <div id="aralinPptTab" class="content-box">
+        <div class="audio-bar">
+          <button onclick="playVoice()">Patugtugin ang Boses</button>
+          <button onclick="pauseVoice()" style="background:#594a42;">Itigil Muna</button>
+          <span>Pindutin ang salita upang tumalon ang pagbabasa sa parteng iyon.</span>
+        </div>
+
+        <h3 id="aralinTitle"></h3>
+
+        <div class="split-layout">
+          <!-- LEFT: Read-Aloud Lecture Text -->
+          <div class="lecture-pane">
+            <div class="lecture-text" id="lectureContainer"></div>
+          </div>
+
+          <!-- RIGHT: Presentation Slide Viewer -->
+          <div class="ppt-pane">
+            <div class="slide-frame">
+              <h2 id="slideTitle"></h2>
+              <p id="slideBody"></p>
+            </div>
+            <div class="slide-controls">
+              <button class="tab-btn" onclick="changeSlide(-1)">Nakaraan</button>
+              <span id="slideCounter"></span>
+              <button class="tab-btn" onclick="changeSlide(1)">Susunod</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISE TAB -->
+      <div id="exerciseTab" class="content-box hidden">
+        <h3>Pagsasanay</h3>
+        <p>Piliin ang tamang sagot. Maririnig ang boses kung ikaw ay Tama o Mali.</p>
+        <div id="quizContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/modules_data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
