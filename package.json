@@ -1,19 +1,49 @@
 {
-  "name": "ebook-portal",
+  "name": "sintaklat-sanayan",
   "version": "1.0.0",
-  "description": "Isang standalone at browser-based na offline educational tool na binuo para sa pananaliksik at modular na pagkatuto sa asignaturang Filipino.",
-  "main": "index.js",
+  "description": "Offline Interactive Ebook Portal at Sanayan",
+  "author": "Cyrus Vlaze M. Julian",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "desktop": "electron .",
+    "build:exe": "powershell -ExecutionPolicy Bypass -File ./build-exe.ps1",
+    "dist": "electron-builder --win --dir",
+    "cap:copy": "npx cap copy android",
+    "cap:sync": "npx cap sync android"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "build": {
+    "appId": "com.sintaklat.sanayan",
+    "productName": "SintAklat-sanayan",
+    "includeSubNodeModules": false,
+    "nodeGypRebuild": false,
+    "win": {
+      "icon": "desktop/app.ico",
+      "target": [
+        "dir",
+        "portable"
+      ],
+      "sign": false
+    },
+    "directories": {
+      "output": "C:/temp/ebook-dist"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "css/**/*",
+      "js/**/*",
+      "www/**/*",
+      "assets/**/*",
+      "desktop/app.ico"
+    ]
+  },
   "dependencies": {
-    "@capacitor/android": "^8.5.3",
-    "@capacitor/cli": "^8.5.3",
-    "@capacitor/core": "^8.5.3",
-    "qrcode": "^1.5.4"
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/core": "^6.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
   }
 }
