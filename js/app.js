@@ -53,6 +53,48 @@ function formatGradeLabel(gradeName) {
   return gradeName.replace("Grade", "Baitang");
 }
 
+function runSplashLoader() {
+  const loader = document.getElementById("splashLoader");
+  const bar = document.getElementById("splashProgressBar");
+  const statusEl = document.getElementById("splashStatusText");
+  const percentEl = document.getElementById("splashPercentText");
+
+  if (!loader) return;
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.floor(Math.random() * 14) + 8;
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(interval);
+
+      if (bar) bar.style.width = "100%";
+      if (percentEl) percentEl.textContent = "100%";
+      if (statusEl) statusEl.textContent = "Maligayang Pagdating sa SintAklat-sanayan!";
+
+      setTimeout(() => {
+        loader.classList.add("fade-out");
+        setTimeout(() => {
+          loader.classList.add("hidden");
+        }, 600);
+      }, 320);
+      return;
+    }
+
+    if (bar) bar.style.width = `${progress}%`;
+    if (percentEl) percentEl.textContent = `${progress}%`;
+    if (statusEl) {
+      if (progress < 40) {
+        statusEl.textContent = "Binubuksan ang Aklatan...";
+      } else if (progress < 80) {
+        statusEl.textContent = "Inihahanda ang mga Aklat (Baitang 7–10)...";
+      } else {
+        statusEl.textContent = "Inaayos ang Tinig-Basa at Sanayan...";
+      }
+    }
+  }, 110);
+}
+
 function setSoundwavePlaying(isPlaying) {
   const wave = document.getElementById("soundwaveAnim");
   if (wave) {

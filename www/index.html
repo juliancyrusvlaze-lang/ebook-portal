@@ -11,6 +11,45 @@
 </head>
 <body>
 
+  <!-- OPENING SPLASH / LOADING ANIMATION -->
+  <div id="splashLoader" class="splash-loader" aria-live="polite" aria-label="Naglo-load ang SintAklat-sanayan">
+    <div class="splash-weave-top" aria-hidden="true"></div>
+    <div class="splash-card">
+      <span class="corner-mark tl"></span>
+      <span class="corner-mark tr"></span>
+      <span class="corner-mark bl"></span>
+      <span class="corner-mark br"></span>
+
+      <!-- Animated 3D Flipping Book Graphic -->
+      <div class="loader-book-stage" aria-hidden="true">
+        <div class="loader-crest">◆</div>
+        <div class="loader-book">
+          <div class="book-page-left"></div>
+          <div class="book-page-flip flip-1"></div>
+          <div class="book-page-flip flip-2"></div>
+          <div class="book-page-flip flip-3"></div>
+          <div class="book-page-right"></div>
+          <div class="book-base-bar"></div>
+        </div>
+      </div>
+
+      <div class="splash-kicker">AKLATANG DIGITAL SA FILIPINO</div>
+      <h1 class="splash-title">SintAklat-sanayan</h1>
+      <p class="splash-motto"><em>Sinta ang Aklat, Sanayan ng Kaisipan.</em></p>
+
+      <div class="splash-progress-wrap">
+        <div class="splash-progress-track">
+          <div id="splashProgressBar" class="splash-progress-bar"></div>
+        </div>
+        <div class="splash-status-row">
+          <span id="splashStatusText">Binubuksan ang Aklatan...</span>
+          <span id="splashPercentText">0%</span>
+        </div>
+      </div>
+    </div>
+    <div class="splash-weave-bottom" aria-hidden="true"></div>
+  </div>
+
   <!-- DECORATIVE FILIPINO GEOMETRIC BANIG / INABEL TOP BORDER -->
   <div class="weave-border" aria-hidden="true"></div>
 
