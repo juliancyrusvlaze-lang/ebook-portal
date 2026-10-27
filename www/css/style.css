@@ -22,6 +22,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
@@ -1473,49 +1479,181 @@ body {
 }
 
 @media (max-width: 640px) {
+  .header-inner {
+    padding: 10px 16px;
+    gap: 10px;
+  }
+  .seal-emblem {
+    width: 40px;
+    height: 40px;
+  }
+  .brand-titles h1 {
+    font-size: 1.25rem;
+  }
+  .header-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .meta-tag,
+  .meta-edition {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+  }
   .folio-shell {
-    padding: 0 14px;
-    margin: 20px auto;
+    padding: 0 16px 16px;
+    margin: 16px auto;
   }
   .book-shelf-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+    padding-right: 6px;
+  }
+  .book-volume {
+    min-height: 240px;
+    box-shadow:
+      3px 3px 0 var(--pure-white),
+      5px 5px 0 var(--ice-border),
+      7px 7px 0 var(--navy-deep),
+      0 10px 20px rgba(7, 25, 66, 0.14);
   }
   .masthead-folio {
     grid-template-columns: 1fr;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    box-shadow:
+      4px 4px 0 var(--pure-white),
+      6px 6px 0 var(--cobalt-main),
+      8px 8px 0 var(--navy-deep),
+      0 12px 24px rgba(7, 25, 66, 0.2);
   }
   .masthead-spine {
     display: none;
   }
   .masthead-main {
-    padding: 22px 20px;
+    padding: 20px 18px;
   }
   .masthead-main h2 {
-    font-size: 1.65rem;
+    font-size: 1.55rem;
   }
   .masthead-index {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 14px 16px;
+  }
+  .index-card {
+    padding: 8px 10px;
+  }
+  .index-num {
+    font-size: 0.85rem;
+  }
+  .index-label {
+    font-size: 0.68rem;
   }
   .shelf-instruction {
     display: none;
   }
-  .options-grid {
-    grid-template-columns: 1fr;
-  }
-  .open-book-spread {
-    padding: 18px 14px;
-  }
-  .lecture-pane {
-    padding: 18px 16px 18px 46px;
-  }
   .nav-bar {
     flex-direction: column;
     align-items: stretch;
+    padding: 12px 14px;
+    gap: 12px;
+  }
+  .nav-left {
+    justify-content: space-between;
   }
   .tab-group {
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
   }
   .tab-btn {
+    justify-content: center;
+    padding: 10px 10px;
+    font-size: 0.82rem;
+  }
+  .open-book-spread {
+    padding: 16px 14px 22px;
+  }
+  .audio-deck {
+    padding: 14px;
+    gap: 12px;
+  }
+  .deck-brand {
+    min-width: 100%;
+  }
+  .deck-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .deck-btn {
     flex: 1;
     justify-content: center;
+    padding: 10px 10px;
+    min-height: 42px;
+  }
+  .deck-divider {
+    display: none;
+  }
+  .font-controls {
+    width: 100%;
+    justify-content: flex-end;
+    padding-top: 4px;
+  }
+  .font-btn {
+    padding: 8px 14px;
+  }
+  #aralinTitle {
+    font-size: 1.35rem;
+  }
+  .lecture-pane {
+    padding: 16px 14px 16px 44px;
+    max-height: 380px;
+    min-height: 260px;
+    background-image:
+      linear-gradient(90deg, transparent 34px, rgba(59, 130, 246, 0.35) 34px, rgba(59, 130, 246, 0.35) 36px, transparent 36px),
+      linear-gradient(rgba(147, 197, 253, 0.25) 1px, transparent 1px);
+  }
+  .lecture-paragraph::before {
+    left: -38px;
+    font-size: 0.62rem;
+  }
+  .lecture-text {
+    font-size: 1.08rem;
+    line-height: 1.85;
+  }
+  .slide-frame {
+    min-height: 260px;
+    padding: 24px 18px;
+  }
+  .slide-frame h2 {
+    font-size: 1.3rem;
+  }
+  .slide-frame p {
+    font-size: 0.96rem;
+  }
+  .slide-nav-btn {
+    padding: 9px 12px;
+    min-height: 40px;
+  }
+  .workbook-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .stamp-score-box {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .question-card {
+    padding: 24px 16px 18px;
+  }
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .option-btn {
+    min-height: 46px;
   }
 }
