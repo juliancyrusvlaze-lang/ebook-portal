@@ -210,7 +210,7 @@ body {
    ========================================= */
 .masthead-folio {
   display: grid;
-  grid-template-columns: 48px 1fr 220px;
+  grid-template-columns: 48px 1fr;
   background: linear-gradient(135deg, var(--navy-deep) 0%, var(--cobalt-main) 65%, var(--cobalt-mid) 100%);
   color: var(--pure-white);
   border-radius: 6px 18px 18px 6px;
@@ -281,9 +281,9 @@ body {
 }
 
 .masthead-main p {
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: var(--ice-wash);
-  max-width: 580px;
+  max-width: 720px;
   line-height: 1.65;
 }
 
