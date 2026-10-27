@@ -23,12 +23,12 @@ const modulesData = {
     },
     exercises: [
       {
-        question: "1. Ano ang nagpapahayag ng mga kaisipan, damdamin, at karanasan ng mga tao?",
+        question: "Ano ang nagpapahayag ng mga kaisipan, damdamin, at karanasan ng mga tao?",
         options: ["Panitikan", "Matematika", "Heograpiya", "Ekonomiks"],
         answerIndex: 0
       },
       {
-        question: "2. Alin sa mga sumusunod ang dalawang pangunahing anyo ng panitikan?",
+        question: "Alin sa mga sumusunod ang dalawang pangunahing anyo ng panitikan?",
         options: ["Awit at Korido", "Tuluyan at Patula", "Sanaysay at Dula", "Epiko at Alamat"],
         answerIndex: 1
       }
@@ -53,7 +53,7 @@ const modulesData = {
     },
     exercises: [
       {
-        question: "1. Sample na tanong para sa Baitang 8?",
+        question: "Sample na tanong para sa Baitang 8?",
         options: ["Tamang Sagot", "Maling Sagot A", "Maling Sagot B", "Maling Sagot C"],
         answerIndex: 0
       }
@@ -76,7 +76,7 @@ const modulesData = {
     },
     exercises: [
       {
-        question: "1. Sample na tanong para sa Baitang 9?",
+        question: "Sample na tanong para sa Baitang 9?",
         options: ["Maling Sagot A", "Tamang Sagot", "Maling Sagot B", "Maling Sagot C"],
         answerIndex: 1
       }
@@ -99,7 +99,7 @@ const modulesData = {
     },
     exercises: [
       {
-        question: "1. Sample na tanong para sa Baitang 10?",
+        question: "Sample na tanong para sa Baitang 10?",
         options: ["Maling Sagot A", "Maling Sagot B", "Tamang Sagot", "Maling Sagot C"],
         answerIndex: 2
       }

@@ -506,6 +506,54 @@ body {
   line-height: 1.65;
 }
 
+.masthead-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.download-app-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.download-app-btn.apk-btn {
+  background: var(--sky-accent);
+  color: var(--navy-void);
+  border: 1.5px solid var(--pure-white);
+  box-shadow: 3px 3px 0 rgba(5, 15, 44, 0.45);
+}
+
+.download-app-btn.apk-btn:hover {
+  background: #bae6fd;
+  transform: translateY(-2px);
+  box-shadow: 4px 5px 0 rgba(5, 15, 44, 0.55);
+}
+
+.download-app-btn.exe-btn {
+  background: rgba(7, 25, 66, 0.65);
+  color: var(--pure-white);
+  border: 1.5px solid rgba(147, 197, 253, 0.55);
+  box-shadow: 3px 3px 0 rgba(5, 15, 44, 0.35);
+}
+
+.download-app-btn.exe-btn:hover {
+  background: rgba(37, 99, 235, 0.45);
+  border-color: var(--pure-white);
+  transform: translateY(-2px);
+  box-shadow: 4px 5px 0 rgba(5, 15, 44, 0.5);
+}
+
 .masthead-index {
   background: rgba(5, 15, 44, 0.42);
   border-left: 1px solid rgba(147, 197, 253, 0.25);
@@ -751,7 +799,6 @@ body {
 }
 
 .cover-emblem {
-  my: auto;
   width: 64px;
   height: 64px;
   border-radius: 50%;

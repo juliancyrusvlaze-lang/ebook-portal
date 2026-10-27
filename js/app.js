@@ -14,6 +14,14 @@ const voiceWrong = new Audio("audio/feedback/mali_voice.mp3");
 document.addEventListener("DOMContentLoaded", () => {
   runSplashLoader();
 
+  // Hide app download buttons when already running inside installed Android APK or standalone EXE
+  const downloadBox = document.getElementById("appDownloadActions");
+  const isCapacitorNative = window.Capacitor && typeof window.Capacitor.isNativePlatform === "function" && window.Capacitor.isNativePlatform();
+  const isStandaloneExe = window.location.protocol === "file:" && /SintAklat-sanayan/i.test(window.location.href);
+  if (downloadBox && (isCapacitorNative || isStandaloneExe)) {
+    downloadBox.classList.add("hidden");
+  }
+
   const gradeMap = {
     "Grade 7": "previewTopicGr7",
     "Grade 8": "previewTopicGr8",
@@ -28,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Keyboard support for 3D book volumes
-  document.querySelectorAll(".book-volume, .grade-card").forEach(card => {
+  // Keyboard support for 3D book volumes and brand seal
+  document.querySelectorAll(".book-volume, .grade-card, .brand-seal").forEach(card => {
     card.addEventListener("keydown", e => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
@@ -131,10 +139,16 @@ function switchTab(tabName, btn) {
   pauseVoice();
   document.getElementById("aralinPptTab").classList.add("hidden");
   document.getElementById("exerciseTab").classList.add("hidden");
-  document.querySelectorAll(".nav-bar .tab-btn").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".nav-bar .tab-btn").forEach(b => {
+    b.classList.remove("active");
+    b.setAttribute("aria-selected", "false");
+  });
 
   document.getElementById(tabName + "Tab").classList.remove("hidden");
-  if (btn) btn.classList.add("active");
+  if (btn) {
+    btn.classList.add("active");
+    btn.setAttribute("aria-selected", "true");
+  }
 }
 
 function adjustFontSize(delta) {
@@ -152,10 +166,16 @@ function loadAralin() {
   pauseVoice();
   simCurrentTime = 0;
   simMaxTime = 0;
+  isUsingSimulation = false;
 
   const data = modulesData[currentGrade].aralin;
   document.getElementById("aralinTitle").textContent = data.title;
-  lectureAudio.src = data.audioSrc || "";
+  if (data.audioSrc) {
+    lectureAudio.src = data.audioSrc;
+  } else {
+    lectureAudio.removeAttribute("src");
+    lectureAudio.load();
+  }
 
   const statusText = document.getElementById("audioStatusText");
   if (statusText) {
@@ -225,13 +245,23 @@ function seekAndPlay(targetTime) {
   simCurrentTime = targetTime;
   highlightAtTime(targetTime);
 
-  if (isUsingSimulation) {
+  if (isUsingSimulation || !lectureAudio.getAttribute("src")) {
     startSimulatedPlayback(targetTime);
     return;
   }
 
-  lectureAudio.currentTime = targetTime;
+  try {
+    lectureAudio.currentTime = targetTime;
+  } catch (e) {
+    // Metadata may not be loaded yet; fallback or apply after play
+  }
+
   lectureAudio.play().then(() => {
+    try {
+      if (Math.abs(lectureAudio.currentTime - targetTime) > 0.25) {
+        lectureAudio.currentTime = targetTime;
+      }
+    } catch (e) {}
     setSoundwavePlaying(true);
   }).catch(() => {
     startSimulatedPlayback(targetTime);
@@ -240,6 +270,17 @@ function seekAndPlay(targetTime) {
 
 function playVoice() {
   const statusText = document.getElementById("audioStatusText");
+  if (isUsingSimulation || !lectureAudio.getAttribute("src")) {
+    startSimulatedPlayback(simCurrentTime);
+    return;
+  }
+
+  try {
+    if (simCurrentTime > 0 && Math.abs(lectureAudio.currentTime - simCurrentTime) > 0.25) {
+      lectureAudio.currentTime = simCurrentTime;
+    }
+  } catch (e) {}
+
   lectureAudio.play().then(() => {
     isUsingSimulation = false;
     setSoundwavePlaying(true);
@@ -294,7 +335,11 @@ function pauseVoice() {
 function restartVoice() {
   pauseVoice();
   simCurrentTime = 0;
-  lectureAudio.currentTime = 0;
+  try {
+    if (lectureAudio.getAttribute("src")) {
+      lectureAudio.currentTime = 0;
+    }
+  } catch (e) {}
   document.querySelectorAll(".voice-word.active-word").forEach(w => w.classList.remove("active-word"));
   document.querySelectorAll(".lecture-paragraph.active-paragraph").forEach(p => p.classList.remove("active-paragraph"));
   playVoice();
@@ -440,7 +485,7 @@ function loadExercises() {
     card.appendChild(itemTag);
 
     const title = document.createElement("strong");
-    title.textContent = q.question;
+    title.textContent = q.question.replace(/^\d+[\.\)]\s*/, "");
     card.appendChild(title);
 
     const optGrid = document.createElement("div");

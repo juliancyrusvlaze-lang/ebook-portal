@@ -56,7 +56,7 @@
   <!-- EDITORIAL FOLIO HEADER -->
   <header class="folio-header">
     <div class="header-inner">
-      <div class="brand-seal" onclick="goBack()" title="Bumalik sa Talaan ng mga Aklat">
+      <div class="brand-seal" onclick="goBack()" tabindex="0" role="button" aria-label="Bumalik sa Talaan ng mga Aklat" title="Bumalik sa Talaan ng mga Aklat">
         <div class="seal-emblem" aria-hidden="true">
           <svg viewBox="0 0 40 40" width="38" height="38" fill="none">
             <rect x="3" y="3" width="34" height="34" rx="8" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="3 2"/>
@@ -93,6 +93,23 @@
         <div class="masthead-main">
           <h2>Sinta ang Aklat,<br><em>Sanayan ng Kaisipan.</em></h2>
           <p>Isang natatanging digital na aklat-sanayan na may kasabay na tinig sa pagbabasa, tanghalan ng mga slide, at interaktibong pagsusulit para sa Junior High School.</p>
+          <div class="masthead-downloads" id="appDownloadActions">
+            <a href="SintAklat-sanayan.apk" download="SintAklat-sanayan.apk" class="download-app-btn apk-btn" title="I-download ang Android Installer (.apk)">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+              <span>I-download ang APK (Android)</span>
+            </a>
+            <a href="SintAklat-sanayan.exe" download="SintAklat-sanayan.exe" class="download-app-btn exe-btn" title="I-download ang Windows Desktop App (.exe)">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <span>I-download ang EXE (Windows)</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -255,11 +272,11 @@
         </div>
 
         <div class="tab-group" role="tablist">
-          <button class="tab-btn active" onclick="switchTab('aralinPpt', this)" role="tab">
+          <button class="tab-btn active" onclick="switchTab('aralinPpt', this)" role="tab" aria-selected="true" aria-controls="aralinPptTab">
             <span class="tab-num">01</span>
             <span>Aralin at Tanghalan</span>
           </button>
-          <button class="tab-btn" onclick="switchTab('exercise', this)" role="tab">
+          <button class="tab-btn" onclick="switchTab('exercise', this)" role="tab" aria-selected="false" aria-controls="exerciseTab">
             <span class="tab-num">02</span>
             <span>Sanayan</span>
             <span id="quizCountBadge" class="tab-badge">0</span>
@@ -268,7 +285,7 @@
       </div>
 
       <!-- OPEN BOOK SPREAD: ARALIN + PPT -->
-      <div id="aralinPptTab" class="open-book-spread">
+      <div id="aralinPptTab" class="open-book-spread" role="tabpanel">
         <!-- STUDIO AUDIO DECK -->
         <div class="audio-deck" id="audioDeck">
           <div class="deck-brand">
@@ -365,7 +382,7 @@
       </div>
 
       <!-- SANAYAN (WORKBOOK EXERCISE) TAB -->
-      <div id="exerciseTab" class="open-book-spread hidden">
+      <div id="exerciseTab" class="open-book-spread hidden" role="tabpanel">
         <div class="workbook-header">
           <div class="workbook-title-block">
             <span class="chapter-meta">PAGSUSULIT AT PAGpapatibay</span>
