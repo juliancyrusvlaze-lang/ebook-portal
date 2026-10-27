@@ -3,320 +3,378 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#0038a8">
-  <title>SintAklat-sanayan | Junior High School Filipino</title>
+  <meta name="theme-color" content="#071942">
+  <title>SintAklat-sanayan | Interaktibong Aklat at Sanayan sa Filipino</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- TOP NAVIGATION HEADER -->
-  <header class="app-header">
+  <!-- DECORATIVE FILIPINO GEOMETRIC BANIG / INABEL TOP BORDER -->
+  <div class="weave-border" aria-hidden="true"></div>
+
+  <!-- EDITORIAL FOLIO HEADER -->
+  <header class="folio-header">
     <div class="header-inner">
-      <div class="brand" onclick="goBack()" title="Bumalik sa Home">
-        <div class="brand-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-            <circle cx="12" cy="10" r="2.5" fill="#93c5fd" stroke="#93c5fd"></circle>
+      <div class="brand-seal" onclick="goBack()" title="Bumalik sa Talaan ng mga Aklat">
+        <div class="seal-emblem" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="38" height="38" fill="none">
+            <rect x="3" y="3" width="34" height="34" rx="8" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <path d="M10 28V13C10 11.8954 10.8954 11 12 11H18C19.1046 11 20 11.8954 20 13V29" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M30 28V13C30 11.8954 29.1046 11 28 11H22C20.8954 11 20 11.8954 20 13V29" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M8 29H32" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="20" cy="7" r="2" fill="#38bdf8"/>
           </svg>
         </div>
-        <div class="brand-text">
+        <div class="brand-titles">
+          <div class="brand-kicker">AKLATANG DIGITAL SA FILIPINO</div>
           <h1>SintAklat-sanayan</h1>
-          <p>Modyul sa Pagkatuto sa Filipino</p>
         </div>
       </div>
-      <div class="header-badges">
-        <span class="badge-offline">
-          <span class="status-dot"></span> Offline Ready
-        </span>
-        <span class="badge-level">Junior High School (Gr. 7–10)</span>
+
+      <div class="header-meta">
+        <div class="meta-tag">
+          <span class="pulse-ring"></span>
+          <span>OFFLINE E-AKLAT</span>
+        </div>
+        <div class="meta-edition">
+          <span>EDISYONG JHS • BAITANG 7–10</span>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <!-- DASHBOARD VIEW -->
+  <main class="folio-shell">
+    <!-- DASHBOARD VIEW: THE BOOKSHELF & FOLIO -->
     <section id="dashboardView" class="view-section">
-      <div class="hero-banner">
-        <div class="hero-content">
-          <span class="hero-eyebrow">INTERAKTIBONG KAGAMITAN SA PAGKATUTO</span>
-          <h2>Maligayang Pagdating sa SintAklat-sanayan</h2>
-          <p>Pumili ng baitang sa ibaba upang buksan ang mga aralin na may boses (audio narration), presentasyon ng mga slide, at interaktibong pagsasanay.</p>
+
+      <!-- ASYMMETRIC EDITORIAL MASTHEAD -->
+      <div class="masthead-folio">
+        <div class="masthead-spine" aria-hidden="true">
+          <span>SINTAKLAT • FILIPINO</span>
         </div>
-        <div class="hero-stats">
-          <div class="stat-pill">
-            <strong>4</strong>
-            <span>Baitang</span>
+
+        <div class="masthead-main">
+          <div class="masthead-top-row">
+            <span class="folio-code">KATALOGO BLG. 07–10</span>
+            <span class="folio-divider">◆</span>
+            <span class="folio-code">SINING AT PANITIKAN</span>
           </div>
-          <div class="stat-pill">
-            <strong>Audio</strong>
-            <span>Read-Aloud</span>
+          <h2>Sinta ang Aklat,<br><em>Sanayan ng Kaisipan.</em></h2>
+          <p>Isang natatanging digital na aklat-sanayan na may kasabay na tinig sa pagbabasa, tanghalan ng mga slide, at interaktibong pagsusulit para sa Junior High School.</p>
+        </div>
+
+        <div class="masthead-index">
+          <div class="index-card">
+            <span class="index-num">04</span>
+            <span class="index-label">Tomo ng Baitang</span>
           </div>
-          <div class="stat-pill">
-            <strong>PPT</strong>
-            <span>Presentasyon</span>
+          <div class="index-card">
+            <span class="index-num">TINIG</span>
+            <span class="index-label">Sabayang Pagbasa</span>
+          </div>
+          <div class="index-card">
+            <span class="index-num">SANAY</span>
+            <span class="index-label">Pagsusulit at Marka</span>
           </div>
         </div>
       </div>
 
-      <div class="section-heading">
-        <div>
-          <h2>Pumili ng Baitang</h2>
-          <p class="section-sub">I-click ang kard ng iyong baitang upang magsimula sa pag-aaral</p>
+      <!-- BOOKSHELF SECTION HEADER -->
+      <div class="shelf-header">
+        <div class="shelf-title-group">
+          <span class="shelf-ornament">❖</span>
+          <h3>Pumili ng Tomo at Baitang</h3>
         </div>
+        <div class="shelf-line"></div>
+        <span class="shelf-instruction">Buksan ang aklat upang magsimula</span>
       </div>
 
-      <div class="grade-grid">
-        <div class="grade-card" data-grade="7" onclick="openGrade('Grade 7')" tabindex="0" role="button" aria-label="Buksan ang Baitang 7">
-          <div class="card-top">
-            <span class="module-tag">MODYUL 07</span>
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+      <!-- 3D HARDCOVER BOOK VOLUMES GRID -->
+      <div class="book-shelf-grid">
+        <!-- GRADE 7 VOLUME -->
+        <div class="book-volume" data-grade="7" onclick="openGrade('Grade 7')" tabindex="0" role="button" aria-label="Buksan ang Baitang 7">
+          <div class="book-spine">
+            <span class="spine-vol">TOMO VII</span>
+            <div class="spine-ornament"></div>
+            <span class="spine-code">GR-07</span>
+          </div>
+          <div class="book-cover">
+            <div class="bookmark-ribbon"></div>
+            <div class="cover-header">
+              <span class="volume-badge">UNANG TOMO</span>
+              <span class="volume-roman">VII</span>
+            </div>
+            <div class="cover-emblem" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M8 38C14 34 20 34 24 38C28 34 34 34 40 38V12C34 8 28 8 24 12C20 8 14 8 8 12V38Z"/>
+                <path d="M24 12V38"/>
+                <circle cx="24" cy="6" r="2" fill="currentColor"/>
               </svg>
             </div>
-          </div>
-          <div class="card-body">
-            <h2>Baitang 7</h2>
-            <p class="card-topic" id="previewTopicGr7">Panitikan at Kultura</p>
-            <p class="card-desc">Aralin, Presentasyon at Pagsasanay</p>
-          </div>
-          <div class="card-footer">
-            <span>Buksan ang Modyul</span>
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+            <div class="cover-titles">
+              <h2>Baitang 7</h2>
+              <p class="cover-topic" id="previewTopicGr7">Panitikan at Kultura</p>
+              <p class="cover-sub">Aralin • Presentasyon • Sanayan</p>
+            </div>
+            <div class="cover-footer">
+              <span>Buksan ang Aklat</span>
+              <span class="cover-arrow">→</span>
+            </div>
           </div>
         </div>
 
-        <div class="grade-card" data-grade="8" onclick="openGrade('Grade 8')" tabindex="0" role="button" aria-label="Buksan ang Baitang 8">
-          <div class="card-top">
-            <span class="module-tag">MODYUL 08</span>
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 20h9"></path>
-                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+        <!-- GRADE 8 VOLUME -->
+        <div class="book-volume" data-grade="8" onclick="openGrade('Grade 8')" tabindex="0" role="button" aria-label="Buksan ang Baitang 8">
+          <div class="book-spine">
+            <span class="spine-vol">TOMO VIII</span>
+            <div class="spine-ornament"></div>
+            <span class="spine-code">GR-08</span>
+          </div>
+          <div class="book-cover">
+            <div class="bookmark-ribbon"></div>
+            <div class="cover-header">
+              <span class="volume-badge">IKALAWANG TOMO</span>
+              <span class="volume-roman">VIII</span>
+            </div>
+            <div class="cover-emblem" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M36 8L16 28L12 38L22 34L42 14L36 8Z"/>
+                <path d="M32 12L38 18"/>
+                <path d="M8 42H28"/>
               </svg>
             </div>
-          </div>
-          <div class="card-body">
-            <h2>Baitang 8</h2>
-            <p class="card-topic" id="previewTopicGr8">Panitikang Pambansa</p>
-            <p class="card-desc">Aralin, Presentasyon at Pagsasanay</p>
-          </div>
-          <div class="card-footer">
-            <span>Buksan ang Modyul</span>
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+            <div class="cover-titles">
+              <h2>Baitang 8</h2>
+              <p class="cover-topic" id="previewTopicGr8">Panitikang Pambansa</p>
+              <p class="cover-sub">Aralin • Presentasyon • Sanayan</p>
+            </div>
+            <div class="cover-footer">
+              <span>Buksan ang Aklat</span>
+              <span class="cover-arrow">→</span>
+            </div>
           </div>
         </div>
 
-        <div class="grade-card" data-grade="9" onclick="openGrade('Grade 9')" tabindex="0" role="button" aria-label="Buksan ang Baitang 9">
-          <div class="card-top">
-            <span class="module-tag">MODYUL 09</span>
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        <!-- GRADE 9 VOLUME -->
+        <div class="book-volume" data-grade="9" onclick="openGrade('Grade 9')" tabindex="0" role="button" aria-label="Buksan ang Baitang 9">
+          <div class="book-spine">
+            <span class="spine-vol">TOMO IX</span>
+            <div class="spine-ornament"></div>
+            <span class="spine-code">GR-09</span>
+          </div>
+          <div class="book-cover">
+            <div class="bookmark-ribbon"></div>
+            <div class="cover-header">
+              <span class="volume-badge">IKATLONG TOMO</span>
+              <span class="volume-roman">IX</span>
+            </div>
+            <div class="cover-emblem" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="24" cy="24" r="16"/>
+                <ellipse cx="24" cy="24" rx="7" ry="16"/>
+                <path d="M8 24H40"/>
+                <path d="M11 15H37"/>
+                <path d="M11 33H37"/>
               </svg>
             </div>
-          </div>
-          <div class="card-body">
-            <h2>Baitang 9</h2>
-            <p class="card-topic" id="previewTopicGr9">Panitikang Asyano</p>
-            <p class="card-desc">Aralin, Presentasyon at Pagsasanay</p>
-          </div>
-          <div class="card-footer">
-            <span>Buksan ang Modyul</span>
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+            <div class="cover-titles">
+              <h2>Baitang 9</h2>
+              <p class="cover-topic" id="previewTopicGr9">Panitikang Asyano</p>
+              <p class="cover-sub">Aralin • Presentasyon • Sanayan</p>
+            </div>
+            <div class="cover-footer">
+              <span>Buksan ang Aklat</span>
+              <span class="cover-arrow">→</span>
+            </div>
           </div>
         </div>
 
-        <div class="grade-card" data-grade="10" onclick="openGrade('Grade 10')" tabindex="0" role="button" aria-label="Buksan ang Baitang 10">
-          <div class="card-top">
-            <span class="module-tag">MODYUL 10</span>
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        <!-- GRADE 10 VOLUME -->
+        <div class="book-volume" data-grade="10" onclick="openGrade('Grade 10')" tabindex="0" role="button" aria-label="Buksan ang Baitang 10">
+          <div class="book-spine">
+            <span class="spine-vol">TOMO X</span>
+            <div class="spine-ornament"></div>
+            <span class="spine-code">GR-10</span>
+          </div>
+          <div class="book-cover">
+            <div class="bookmark-ribbon"></div>
+            <div class="cover-header">
+              <span class="volume-badge">IKAAPAT NA TOMO</span>
+              <span class="volume-roman">X</span>
+            </div>
+            <div class="cover-emblem" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polygon points="24 6 28.5 17.5 41 18.5 31.5 26.5 34.5 39 24 32 13.5 39 16.5 26.5 7 18.5 19.5 17.5 24 6"/>
+                <circle cx="24" cy="23" r="4"/>
               </svg>
             </div>
-          </div>
-          <div class="card-body">
-            <h2>Baitang 10</h2>
-            <p class="card-topic" id="previewTopicGr10">Panitikang Pandaigdig</p>
-            <p class="card-desc">Aralin, Presentasyon at Pagsasanay</p>
-          </div>
-          <div class="card-footer">
-            <span>Buksan ang Modyul</span>
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+            <div class="cover-titles">
+              <h2>Baitang 10</h2>
+              <p class="cover-topic" id="previewTopicGr10">Panitikang Pandaigdig</p>
+              <p class="cover-sub">Aralin • Presentasyon • Sanayan</p>
+            </div>
+            <div class="cover-footer">
+              <span>Buksan ang Aklat</span>
+              <span class="cover-arrow">→</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MODULE VIEW -->
+    <!-- MODULE VIEW: THE OPEN BOOK SPREAD -->
     <section id="moduleView" class="view-section hidden">
+      <!-- FOLIO COMMAND RIBBON -->
       <div class="nav-bar">
         <div class="nav-left">
           <button class="back-btn" onclick="goBack()">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-            <span>Bumalik sa Dashboard</span>
+            <span class="back-icon">←</span>
+            <span>Talaan ng Aklat</span>
           </button>
           <div class="current-grade-wrap">
-            <span class="grade-eyebrow">KASALUKUYANG MODYUL</span>
+            <span class="grade-eyebrow">BUKAS NA TOMO</span>
             <h2 id="currentGradeTitle">Baitang 7</h2>
           </div>
         </div>
 
         <div class="tab-group" role="tablist">
           <button class="tab-btn active" onclick="switchTab('aralinPpt', this)" role="tab">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-            </svg>
-            <span>Aralin at Presentasyon</span>
+            <span class="tab-num">01</span>
+            <span>Aralin at Tanghalan</span>
           </button>
           <button class="tab-btn" onclick="switchTab('exercise', this)" role="tab">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 11l3 3L22 4"></path>
-              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-            </svg>
-            <span>Pagsasanay</span>
+            <span class="tab-num">02</span>
+            <span>Sanayan</span>
             <span id="quizCountBadge" class="tab-badge">0</span>
           </button>
         </div>
       </div>
 
-      <!-- COMBINED ARALIN + PPT COMPONENT -->
-      <div id="aralinPptTab" class="content-box">
-        <!-- AUDIO CONTROLS BAR -->
-        <div class="audio-bar">
-          <div class="audio-controls-group">
-            <button class="audio-btn play-btn" id="playVoiceBtn" onclick="playVoice()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-              <span>Patugtugin ang Boses</span>
+      <!-- OPEN BOOK SPREAD: ARALIN + PPT -->
+      <div id="aralinPptTab" class="open-book-spread">
+        <!-- STUDIO AUDIO DECK -->
+        <div class="audio-deck" id="audioDeck">
+          <div class="deck-brand">
+            <div class="soundwave" id="soundwaveAnim" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="deck-label">
+              <strong>TINIG-BASA STUDIO</strong>
+              <span id="audioStatusText">Pindutin ang alinmang salita upang simulan ang sabayang pagbasa.</span>
+            </div>
+          </div>
+
+          <div class="deck-controls">
+            <button class="deck-btn primary-play" id="playVoiceBtn" onclick="playVoice()">
+              <span>▶</span>
+              <span>Patugtugin</span>
             </button>
-            <button class="audio-btn pause-btn" onclick="pauseVoice()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                <rect x="6" y="4" width="4" height="16"></rect>
-                <rect x="14" y="4" width="4" height="16"></rect>
-              </svg>
+            <button class="deck-btn" onclick="pauseVoice()">
+              <span>⏸</span>
               <span>Itigil Muna</span>
             </button>
-            <button class="audio-btn restart-btn" onclick="restartVoice()" title="Ulitin mula sa simula">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="1 4 1 10 7 10"></polyline>
-                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-              </svg>
+            <button class="deck-btn" onclick="restartVoice()" title="Simulan sa umpisa">
+              <span>↺</span>
               <span>Ulitin</span>
             </button>
-          </div>
-
-          <div class="audio-hint">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-            <span id="audioStatusText">Pindutin ang salita o talata upang tumalon ang pagbabasa sa parteng iyon.</span>
-          </div>
-
-          <div class="font-controls" aria-label="Laki ng titik">
-            <button class="font-btn" onclick="adjustFontSize(-1)" title="Liitan ang teksto">A-</button>
-            <button class="font-btn" onclick="adjustFontSize(1)" title="Lakihan ang teksto">A+</button>
+            <div class="deck-divider"></div>
+            <div class="font-controls" aria-label="Laki ng titik">
+              <button class="font-btn" onclick="adjustFontSize(-1)" title="Liitan ang titik">A−</button>
+              <button class="font-btn" onclick="adjustFontSize(1)" title="Lakihan ang titik">A+</button>
+            </div>
           </div>
         </div>
 
-        <div class="aralin-header">
-          <span class="section-pill">BABASAHIN AT LEKTYUR</span>
+        <!-- CHAPTER HEADER -->
+        <div class="chapter-banner">
+          <div class="chapter-meta">KABANATA AT LEKTYUR</div>
           <h3 id="aralinTitle"></h3>
         </div>
 
+        <!-- TWO-PAGE SPREAD LAYOUT -->
         <div class="split-layout">
-          <!-- LEFT: Read-Aloud Lecture Text -->
-          <div class="lecture-pane-wrapper">
-            <div class="pane-label">
-              <span>Teksto ng Aralin</span>
-              <span class="pane-hint">I-click ang teksto para basahin</span>
+          <!-- LEFT PAGE: MANUSCRIPT READER -->
+          <div class="manuscript-page">
+            <div class="page-header-strip">
+              <span>PAHINA NG PAGBASA</span>
+              <span>INTERAKTIBONG TEKSTO</span>
             </div>
             <div class="lecture-pane">
               <div class="lecture-text" id="lectureContainer"></div>
             </div>
+            <div class="page-footer-strip">
+              <span>SINTAKLAT-SANAYAN</span>
+              <span>• PAHINA I •</span>
+            </div>
           </div>
 
-          <!-- RIGHT: Presentation Slide Viewer -->
-          <div class="ppt-pane">
-            <div class="pane-label">
-              <span>Presentasyon (Slides)</span>
-              <span id="slideCounterTop" class="pane-hint">Slide 1</span>
+          <!-- RIGHT PAGE: ARCHITECTURAL SLIDE STAGE -->
+          <div class="stage-page">
+            <div class="page-header-strip">
+              <span>TANGHALAN NG PRESENTASYON</span>
+              <span id="slideCounterTop">SLIDE 01</span>
             </div>
+
             <div class="slide-frame">
+              <span class="corner-mark tl"></span>
+              <span class="corner-mark tr"></span>
+              <span class="corner-mark bl"></span>
+              <span class="corner-mark br"></span>
+
+              <div class="slide-watermark" id="slideWatermark">01</div>
               <div class="slide-badge">PRESENTASYON</div>
               <h2 id="slideTitle"></h2>
-              <div class="slide-divider"></div>
+              <div class="slide-divider">
+                <span>◆</span>
+              </div>
               <p id="slideBody"></p>
             </div>
+
             <div class="slide-dots" id="slideDots"></div>
+
             <div class="slide-controls">
               <button class="slide-nav-btn" onclick="changeSlide(-1)">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
+                <span class="keycap">←</span>
                 <span>Nakaraan</span>
               </button>
               <span id="slideCounter"></span>
               <button class="slide-nav-btn" onclick="changeSlide(1)">
                 <span>Susunod</span>
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
+                <span class="keycap">→</span>
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- EXERCISE TAB -->
-      <div id="exerciseTab" class="content-box hidden">
-        <div class="exercise-header">
-          <div>
-            <span class="section-pill">PAGSUSULIT SA KAALAMAN</span>
-            <h3>Pagsasanay</h3>
-            <p>Piliin ang tamang sagot sa bawat bilang. Maririnig ang boses at makikita agad kung ikaw ay Tama o Mali.</p>
+      <!-- SANAYAN (WORKBOOK EXERCISE) TAB -->
+      <div id="exerciseTab" class="open-book-spread hidden">
+        <div class="workbook-header">
+          <div class="workbook-title-block">
+            <span class="chapter-meta">PAGSUSULIT AT PAGpapatibay</span>
+            <h3>Sanayan sa Kaalaman</h3>
+            <p>Piliin ang titik ng tamang sagot. Agad na mamarkahan ang iyong napiling tugon kasabay ng tinig-gabay.</p>
           </div>
-          <div class="score-card">
-            <div class="score-info">
-              <span class="score-label">Kasalukuyang Iskor</span>
+
+          <div class="stamp-score-box">
+            <div class="stamp-inner">
+              <span class="stamp-label">TALAAN NG ISKOR</span>
               <strong id="quizScoreDisplay">0 / 0</strong>
             </div>
-            <button class="reset-quiz-btn" onclick="loadExercises()" title="Ulitin ang Pagsasanay">
-              Ulitin
+            <button class="reset-quiz-btn" onclick="loadExercises()">
+              <span>↺</span> Baguhin
             </button>
           </div>
         </div>
-        <div id="quizContainer"></div>
+
+        <div id="quizContainer" class="workbook-questions"></div>
       </div>
     </section>
   </main>
 
-  <footer class="app-footer">
-    <p>SintAklat-sanayan • Junior High School sa Filipino (Baitang 7–10) • Offline Educational Module</p>
+  <footer class="folio-footer">
+    <div class="footer-ornament">─── ❖ ───</div>
+    <p><strong>SintAklat-sanayan</strong> • Modyul sa Pagkatuto sa Filipino (Baitang 7–10) • Offline Digital Folio</p>
   </footer>
 
   <script src="js/modules_data.js"></script>
