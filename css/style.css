@@ -52,6 +52,225 @@ body {
 }
 
 /* =========================================
+   OPENING SPLASH / LOADING ANIMATION
+   ========================================= */
+.splash-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background:
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 50% 35%, #0b2563 0%, #050f2c 75%);
+  background-size: 28px 28px, 28px 28px, 100% 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--pure-white);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.splash-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+.splash-weave-top,
+.splash-weave-bottom {
+  height: 8px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--navy-void) 0px,
+    var(--navy-void) 16px,
+    var(--cobalt-main) 16px,
+    var(--cobalt-main) 32px,
+    var(--sky-accent) 32px,
+    var(--sky-accent) 40px,
+    var(--ice-wash) 40px,
+    var(--ice-wash) 48px,
+    var(--azure-bright) 48px,
+    var(--azure-bright) 64px
+  );
+}
+
+.splash-card {
+  position: relative;
+  width: min(440px, 90vw);
+  padding: 40px 32px 34px;
+  text-align: center;
+  background: rgba(7, 25, 66, 0.72);
+  border: 1.5px solid rgba(147, 197, 253, 0.32);
+  border-radius: 14px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 32px rgba(56, 189, 248, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+/* 3D Animated Flipping Book */
+.loader-book-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.loader-crest {
+  color: var(--sky-accent);
+  font-size: 1rem;
+  margin-bottom: 8px;
+  animation: crestFloat 1.6s ease-in-out infinite alternate;
+  text-shadow: 0 0 12px var(--sky-accent);
+}
+
+@keyframes crestFloat {
+  0% { transform: translateY(0) scale(0.95); opacity: 0.75; }
+  100% { transform: translateY(-4px) scale(1.15); opacity: 1; }
+}
+
+.loader-book {
+  position: relative;
+  width: 96px;
+  height: 64px;
+  perspective: 320px;
+}
+
+.book-page-left,
+.book-page-right {
+  position: absolute;
+  top: 0;
+  width: 46px;
+  height: 56px;
+  border: 2.5px solid var(--pure-white);
+  background: rgba(0, 56, 168, 0.55);
+}
+
+.book-page-left {
+  left: 2px;
+  border-radius: 5px 2px 2px 5px;
+}
+
+.book-page-right {
+  right: 2px;
+  border-color: var(--ice-border);
+  border-radius: 2px 5px 5px 2px;
+}
+
+.book-page-flip {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  width: 46px;
+  height: 56px;
+  background: linear-gradient(90deg, var(--ice-wash), var(--pure-white));
+  border: 2px solid var(--sky-accent);
+  border-radius: 2px 5px 5px 2px;
+  transform-origin: left center;
+  animation: bookPageFlip 1.5s infinite ease-in-out;
+}
+
+.book-page-flip.flip-2 {
+  animation-delay: 0.35s;
+  opacity: 0.85;
+}
+
+.book-page-flip.flip-3 {
+  animation-delay: 0.7s;
+  opacity: 0.7;
+}
+
+@keyframes bookPageFlip {
+  0% {
+    transform: rotateY(0deg);
+    background: var(--pure-white);
+  }
+  50% {
+    background: var(--sky-accent);
+  }
+  100% {
+    transform: rotateY(-180deg);
+    background: var(--ice-wash);
+  }
+}
+
+.book-base-bar {
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  right: -4px;
+  height: 4px;
+  background: var(--sky-accent);
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.75);
+}
+
+.splash-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 2.2px;
+  color: var(--sky-accent);
+  margin-bottom: 6px;
+}
+
+.splash-title {
+  font-family: var(--font-serif);
+  font-size: 1.95rem;
+  font-weight: 700;
+  color: var(--pure-white);
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+}
+
+.splash-motto {
+  font-family: var(--font-serif);
+  font-size: 0.94rem;
+  color: var(--ice-wash);
+  margin-bottom: 24px;
+}
+
+.splash-progress-wrap {
+  width: 100%;
+}
+
+.splash-progress-track {
+  width: 100%;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(147, 197, 253, 0.35);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.splash-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--azure-bright), var(--sky-accent), #bae6fd);
+  border-radius: 999px;
+  box-shadow: 0 0 10px var(--sky-accent);
+  transition: width 0.12s ease-out;
+}
+
+.splash-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--ice-border);
+}
+
+#splashPercentText {
+  font-weight: 800;
+  color: var(--sky-accent);
+}
+
+/* =========================================
    FILIPINO INABEL / BANIG GEOMETRIC TOP BORDER
    ========================================= */
 .weave-border {
