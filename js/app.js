@@ -10,8 +10,10 @@ const lectureAudio = new Audio();
 const voiceCorrect = new Audio("audio/feedback/tama_voice.mp3");
 const voiceWrong = new Audio("audio/feedback/mali_voice.mp3");
 
-// Initialize Dashboard previews on load
+// Initialize Dashboard previews and Splash Loader on load
 document.addEventListener("DOMContentLoaded", () => {
+  runSplashLoader();
+
   const gradeMap = {
     "Grade 7": "previewTopicGr7",
     "Grade 8": "previewTopicGr8",
