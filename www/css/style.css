@@ -485,8 +485,8 @@ body {
 .bookmark-ribbon {
   position: absolute;
   top: 0;
-  right: 16px;
-  width: 16px;
+  right: 12px;
+  width: 14px;
   height: 28px;
   background: var(--cobalt-main);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
@@ -502,26 +502,33 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 24px;
+  min-height: 28px;
+  padding-right: 20px;
+  gap: 6px;
 }
 
 .volume-badge {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.58rem;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
   color: var(--cobalt-main);
   background: var(--ice-paper);
   border: 1px solid var(--ice-border);
-  padding: 3px 8px;
+  padding: 3px 7px;
   border-radius: 3px;
 }
 
 .volume-roman {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: rgba(0, 56, 168, 0.14);
+  line-height: 1;
+  color: rgba(0, 56, 168, 0.18);
+  min-width: 38px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .cover-emblem {
