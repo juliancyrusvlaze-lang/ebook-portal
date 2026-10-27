@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Keyboard support for grade cards
-  document.querySelectorAll(".grade-card").forEach(card => {
+  // Keyboard support for 3D book volumes
+  document.querySelectorAll(".book-volume, .grade-card").forEach(card => {
     card.addEventListener("keydown", e => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
@@ -49,6 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function formatGradeLabel(gradeName) {
   return gradeName.replace("Grade", "Baitang");
+}
+
+function setSoundwavePlaying(isPlaying) {
+  const wave = document.getElementById("soundwaveAnim");
+  if (wave) {
+    wave.classList.toggle("playing", isPlaying);
+  }
 }
 
 function openGrade(gradeName) {
@@ -108,7 +115,7 @@ function loadAralin() {
 
   const statusText = document.getElementById("audioStatusText");
   if (statusText) {
-    statusText.textContent = "Pindutin ang salita o talata upang tumalon ang pagbabasa sa parteng iyon.";
+    statusText.textContent = "Pindutin ang alinmang salita upang simulan ang sabayang pagbasa.";
   }
 
   const container = document.getElementById("lectureContainer");
@@ -118,6 +125,7 @@ function loadAralin() {
   if (data.segments && data.segments.length > 0) {
     const pBlock = document.createElement("div");
     pBlock.className = "lecture-paragraph";
+    pBlock.dataset.section = "§ 01";
     data.segments.forEach(item => {
       const span = createWordSpan(item.word, item.start, item.end);
       pBlock.appendChild(span);
@@ -128,11 +136,12 @@ function loadAralin() {
   }
 
   if (data.paragraphs && data.paragraphs.length > 0) {
-    data.paragraphs.forEach(para => {
+    data.paragraphs.forEach((para, pIdx) => {
       const pBlock = document.createElement("div");
       pBlock.className = "lecture-paragraph";
       pBlock.dataset.start = para.start;
       pBlock.dataset.end = para.end;
+      pBlock.dataset.section = `§ ${String(pIdx + 1).padStart(2, "0")}`;
 
       const words = para.text.trim().split(/\s+/);
       const duration = Math.max(0.5, para.end - para.start);
@@ -178,7 +187,9 @@ function seekAndPlay(targetTime) {
   }
 
   lectureAudio.currentTime = targetTime;
-  lectureAudio.play().catch(() => {
+  lectureAudio.play().then(() => {
+    setSoundwavePlaying(true);
+  }).catch(() => {
     startSimulatedPlayback(targetTime);
   });
 }
@@ -187,11 +198,11 @@ function playVoice() {
   const statusText = document.getElementById("audioStatusText");
   lectureAudio.play().then(() => {
     isUsingSimulation = false;
+    setSoundwavePlaying(true);
     if (statusText) {
-      statusText.textContent = "Nagpe-play ang audio ng aralin...";
+      statusText.textContent = "Nagpe-play ang tinig ng aralin...";
     }
   }).catch(() => {
-    // Fallback to interactive read-aloud highlight timer if MP3 is not present
     startSimulatedPlayback(simCurrentTime);
   });
 }
@@ -200,10 +211,11 @@ function startSimulatedPlayback(fromTime = 0) {
   isUsingSimulation = true;
   clearInterval(simTimer);
   simCurrentTime = fromTime >= simMaxTime ? 0 : fromTime;
+  setSoundwavePlaying(true);
 
   const statusText = document.getElementById("audioStatusText");
   if (statusText) {
-    statusText.textContent = "Binabasa ang aralin (Interactive Highlight Mode)...";
+    statusText.textContent = "Sabayang Pagbasa (Interactive Highlight Mode)...";
   }
 
   highlightAtTime(simCurrentTime);
@@ -224,6 +236,7 @@ function startSimulatedPlayback(fromTime = 0) {
 
 function pauseVoice() {
   lectureAudio.pause();
+  setSoundwavePlaying(false);
   if (simTimer) {
     clearInterval(simTimer);
     simTimer = null;
@@ -282,6 +295,7 @@ lectureAudio.addEventListener("timeupdate", () => {
 });
 
 lectureAudio.addEventListener("ended", () => {
+  setSoundwavePlaying(false);
   const statusText = document.getElementById("audioStatusText");
   if (statusText) {
     statusText.textContent = "Tapos na ang pagbabasa ng aralin.";
@@ -318,20 +332,25 @@ function renderSlideDots() {
 function updateSlideDisplay() {
   const slides = modulesData[currentGrade].slides;
   const topCounter = document.getElementById("slideCounterTop");
+  const watermark = document.getElementById("slideWatermark");
 
   if (!slides || slides.length === 0) {
     document.getElementById("slideTitle").textContent = "Walang Slides";
     document.getElementById("slideBody").textContent = "";
-    document.getElementById("slideCounter").textContent = "0 sa 0";
-    if (topCounter) topCounter.textContent = "0 / 0";
+    document.getElementById("slideCounter").textContent = "0 / 0";
+    if (topCounter) topCounter.textContent = "SLIDE 00";
+    if (watermark) watermark.textContent = "00";
     return;
   }
 
   const slide = slides[currentSlideIndex];
+  const formattedNum = String(currentSlideIndex + 1).padStart(2, "0");
+
   document.getElementById("slideTitle").textContent = slide.title;
   document.getElementById("slideBody").textContent = slide.content;
-  document.getElementById("slideCounter").textContent = `Slide ${currentSlideIndex + 1} sa ${slides.length}`;
-  if (topCounter) topCounter.textContent = `Slide ${currentSlideIndex + 1} ng ${slides.length}`;
+  document.getElementById("slideCounter").textContent = `SLIDE ${formattedNum} / ${String(slides.length).padStart(2, "0")}`;
+  if (topCounter) topCounter.textContent = `SLIDE ${formattedNum} NG ${String(slides.length).padStart(2, "0")}`;
+  if (watermark) watermark.textContent = formattedNum;
 
   const dots = document.querySelectorAll("#slideDots .slide-dot");
   dots.forEach((d, idx) => {
@@ -347,7 +366,7 @@ function changeSlide(step) {
 }
 
 // =========================================
-// EXERCISE / QUIZ COMPONENT
+// SANAYAN (WORKBOOK EXERCISE) COMPONENT
 // =========================================
 function loadExercises() {
   const questions = modulesData[currentGrade].exercises || [];
@@ -370,6 +389,11 @@ function loadExercises() {
   questions.forEach((q, qIndex) => {
     const card = document.createElement("div");
     card.className = "question-card";
+
+    const itemTag = document.createElement("span");
+    itemTag.className = "question-item-tag";
+    itemTag.textContent = `AYTEM BLG. ${String(qIndex + 1).padStart(2, "0")}`;
+    card.appendChild(itemTag);
 
     const title = document.createElement("strong");
     title.textContent = q.question;
@@ -406,13 +430,13 @@ function loadExercises() {
 
         if (isCorrect) {
           btn.classList.add("correct");
-          feedback.textContent = "✓ TAMA! Magaling, nakuha mo ang tamang sagot.";
+          feedback.textContent = "[ TAMA • MAHUSAY ] Nakuha mo ang wastong kasagutan!";
           feedback.classList.add("show-correct");
           answeredCorrectly.add(qIndex);
           voiceCorrect.play().catch(() => {});
         } else {
           btn.classList.add("wrong");
-          feedback.textContent = "✕ MALI. Subukang pumili muli.";
+          feedback.textContent = "[ MALI • SUBUKANG MULI ] Pumili ng ibang titik.";
           feedback.classList.add("show-wrong");
           answeredCorrectly.delete(qIndex);
           voiceWrong.play().catch(() => {});
